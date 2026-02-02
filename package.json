@@ -17,7 +17,7 @@
     }
   },
   "bin": {
-    "ls-ts-barrels": "./dist/cli.cjs"
+    "lb-ts-barrels": "./dist/cli.cjs"
   },
   "type": "module",
   "scripts": {
