@@ -1,5 +1,6 @@
-import fs from 'fs-extra';
 import path from 'path';
+
+import fs from 'fs-extra';
 
 export interface BarrelOptions {
     all: boolean;
@@ -7,7 +8,7 @@ export interface BarrelOptions {
     filename: string;
 }
 
-export async function generateBarrels(folder: string, options: BarrelOptions) {
+export async function generateBarrels(folder: string, options: BarrelOptions): Promise<string> {
     // 1️⃣ List all subfolders
     const entries = await fs.readdir(folder);
     const subdirs: string[] = [];
