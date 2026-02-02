@@ -1,11 +1,19 @@
 import { defineConfig } from 'tsdown';
 
-export default defineConfig({
-    entry: ['src/index.ts'], // Main export file
-    format: ['cjs', 'esm'], // CJS and ESM; add 'iife' for browser if needed
-    dts: true, // Generate types
-    sourcemap: true,
-    clean: true,
-    minify: true, // Production minification
-  target: false,
-});
+export default defineConfig([
+    {
+        entry: { index: 'src/index.ts' },
+        format: ['cjs', 'esm'],
+        dts: true,
+        sourcemap: true,
+        clean: true,
+        minify: true,
+    },
+    {
+        entry: { cli: 'src/cli.ts' },
+        format: ['cjs', 'esm'],
+        dts: true,
+        sourcemap: true,
+        minify: true,
+    },
+]);
