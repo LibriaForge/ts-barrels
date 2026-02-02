@@ -2,8 +2,8 @@
 
 A simple, fast TypeScript barrel file generator that recursively creates `index.ts` exports for your project.
 
-![Version](https://img.shields.io/npm/v/@libria/scaffold)
-![License](https://img.shields.io/npm/l/@libria/scaffold)
+![Version](https://img.shields.io/npm/v/@libria/ts-barrels)
+![License](https://img.shields.io/npm/l/@libria/ts-barrels)
 
 ## What are Barrel Files?
 
