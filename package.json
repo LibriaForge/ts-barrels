@@ -1,6 +1,6 @@
 {
   "name": "@libria/ts-barrels",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Simple TypeScript barrel generator for typescript projects",
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
