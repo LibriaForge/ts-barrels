@@ -12,7 +12,7 @@ program
     .description('Generate TypeScript barrel files recursively')
     .argument('<root>', 'Root folder to generate barrels in')
     .option('--all', 'Generate barrels recursively from leaves to root', false)
-    .option('--force', 'Force override existing barrels (ignores skip)', false)
+    .option('--force', 'Force override existing barrels', false)
     .option('--name <filename>', 'Barrel filename', 'index.ts')
     .action(async (root: string, options: { all: boolean; force: boolean; name: string }) => {
         const rootPath = path.resolve(root);
