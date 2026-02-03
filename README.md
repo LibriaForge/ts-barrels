@@ -56,6 +56,12 @@ Force regenerate all barrels:
 npx ts-barrels src --all --force
 ```
 
+Ignore a folder from barrel generation:
+
+```bash
+npx ts-barrels ignore src/internal
+```
+
 ## Programmatic Usage
 
 ```typescript
@@ -79,6 +85,22 @@ export { specific } from './module';
 ```
 
 Files with the skip comment are **always preserved**, even when using `--force`.
+
+## Ignoring Folders
+
+To completely exclude a folder (and all its children) from barrel generation, create a `.lbbign` marker file in that folder:
+
+```bash
+npx ts-barrels ignore src/internal
+```
+
+This creates a `.lbbign` file in `src/internal`. When generating barrels, any folder containing `.lbbign` will be skipped entirely:
+
+- No barrel file will be created in that folder
+- No child folders will be traversed
+- The parent barrel will not export from the ignored folder
+
+This is useful for internal modules, generated code, or any directory you want to exclude from your public API.
 
 ## Generated Output
 

@@ -8,7 +8,14 @@ export interface BarrelOptions {
     filename: string;
 }
 
-export async function generateBarrels(folder: string, options: BarrelOptions): Promise<string> {
+export async function generateBarrels(folder: string, options: BarrelOptions): Promise<string | null> {
+    // 0️⃣ Check for .lbbign marker file - if present, skip this folder entirely
+    const ignoreFilePath = path.join(folder, '.lbbign');
+    if (await fs.pathExists(ignoreFilePath)) {
+        console.log(`⏭ Ignoring ${folder} (.lbbign file found)`);
+        return null;
+    }
+
     // 1️⃣ List all subfolders
     const entries = await fs.readdir(folder);
     const subdirs: string[] = [];
