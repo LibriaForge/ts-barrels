@@ -11,7 +11,7 @@ describe('all', () => {
 
     beforeEach(async () => {
         // useTempProject already handles cwd change and cleanup
-        const temp = await useTempProject('basic-project', 'config');
+        const temp = await useTempProject('basic-project', 'all');
         cleanup = temp.cleanup;
         tmpDir = temp.tmp;
     });

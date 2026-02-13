@@ -18,7 +18,7 @@ export async function useTempProject(fixture: string, name?: string) {
         cleanup: async () => {
             process.chdir(originalCwd);
             if (await fs.pathExists(tmp)) {
-                await fs.remove(tmp);
+                // await fs.remove(tmp);
             }
         }
     }
