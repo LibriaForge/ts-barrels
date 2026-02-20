@@ -1,4 +1,5 @@
 import { defineConfig } from 'tsdown';
+const isDebug = process.env.NODE_ENV !== 'production';
 
 export default defineConfig([
     {
@@ -7,13 +8,13 @@ export default defineConfig([
         dts: true,
         sourcemap: true,
         clean: true,
-        minify: true,
+        minify: !isDebug,
     },
     {
         entry: { cli: 'src/cli.ts' },
         format: ['cjs', 'esm'],
         dts: true,
         sourcemap: true,
-        minify: true,
+        minify: !isDebug,
     },
 ]);

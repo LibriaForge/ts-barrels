@@ -31,12 +31,18 @@ export async function generateBarrels(folder: string, options: BarrelOptions): P
         }
     }
 
-    // 2️⃣ Recurse into subfolders first if --all
+    // 2️⃣ Process subfolders: generate if --all, otherwise check for existing barrels
     const childBarrels: string[] = [];
-    if (options.all) {
-        for (const subdir of subdirs) {
+    for (const subdir of subdirs) {
+        if (options.all) {
             const child = await generateBarrels(subdir, options);
             if (child) childBarrels.push(child);
+        } else {
+            // Check if subdirectory already has a barrel file
+            const subBarrelPath = path.join(subdir, options.filename);
+            if (await fs.pathExists(subBarrelPath)) {
+                childBarrels.push(subBarrelPath);
+            }
         }
     }
 

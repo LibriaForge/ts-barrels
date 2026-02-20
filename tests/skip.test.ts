@@ -13,7 +13,7 @@ describe('skip', () => {
 
     beforeEach(async () => {
         // useTempProject already handles cwd change and cleanup
-        const temp = await useTempProject('basic-project', 'config');
+        const temp = await useTempProject('basic-project', 'skip');
         cleanup = temp.cleanup;
         tmpDir = temp.tmp;
     });
